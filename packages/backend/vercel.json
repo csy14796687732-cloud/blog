@@ -1,7 +1,7 @@
 {
-  "buildCommand": "cd ../.. && npx turbo run build --filter=@blog/backend && cd packages/backend && npx drizzle-kit migrate",
-  "outputDirectory": ".",
   "installCommand": "cd ../.. && pnpm install --filter=@blog/backend...",
+  "buildCommand": "cd ../.. && pnpm --filter @blog/shared build && pnpm --filter @blog/backend build",
+  "outputDirectory": ".",
   "functions": {
     "api/index.ts": {
       "memory": 512,
@@ -10,15 +10,5 @@
   },
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api" }
-  ],
-  "headers": [
-    {
-      "source": "/api/(.*)",
-      "headers": [
-        { "key": "Access-Control-Allow-Origin", "value": "*" },
-        { "key": "Access-Control-Allow-Methods", "value": "GET,POST,PUT,DELETE,OPTIONS" },
-        { "key": "Access-Control-Allow-Headers", "value": "Content-Type, Authorization" }
-      ]
-    }
   ]
 }
