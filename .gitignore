@@ -30,7 +30,6 @@ uploads/*
 
 # Drizzle
 packages/backend/drizzle/meta/
-packages/backend/drizzle/*.sql
 
 # Test
 coverage/
