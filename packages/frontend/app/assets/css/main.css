@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@layer base {
+  :root {
+    --color-surface: 255 255 255;
+    --color-text: 30 41 59;
+    --color-muted: 100 116 139;
+    --color-border: 226 232 240;
+  }
+
+  .dark {
+    --color-surface: 15 23 42;
+    --color-text: 241 245 249;
+    --color-muted: 148 163 184;
+    --color-border: 51 65 85;
+  }
+
+  body {
+    @apply bg-white text-slate-800 transition-colors duration-200;
+    @apply dark:bg-slate-900 dark:text-slate-100;
+  }
+
+  * {
+    @apply border-slate-200 dark:border-slate-700;
+  }
+}
+
+@layer components {
+  .prose-custom {
+    @apply prose prose-slate max-w-none dark:prose-invert;
+    @apply prose-headings:font-semibold;
+    @apply prose-a:text-primary-600 dark:prose-a:text-primary-400;
+    @apply prose-code:rounded prose-code:bg-slate-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:text-sm;
+    @apply dark:prose-code:bg-slate-800;
+    @apply prose-pre:bg-slate-900 dark:prose-pre:bg-slate-800;
+    @apply prose-img:rounded-lg;
+  }
+}

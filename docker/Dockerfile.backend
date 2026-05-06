@@ -1,0 +1,28 @@
+# Build stage
+FROM oven/bun:1-alpine AS builder
+WORKDIR /app
+
+COPY package.json pnpm-workspace.yaml pnpm-lock.yaml .npmrc ./
+COPY packages/shared/ ./packages/shared/
+COPY packages/backend/ ./packages/backend/
+
+RUN npm install -g pnpm@9
+RUN pnpm install --frozen-lockfile
+RUN pnpm --filter @blog/shared build
+RUN pnpm --filter @blog/backend build
+
+# Production stage
+FROM oven/bun:1-alpine AS production
+WORKDIR /app
+
+COPY --from=builder /app/packages/backend/dist ./dist
+COPY --from=builder /app/packages/backend/package.json .
+COPY --from=builder /app/packages/backend/node_modules ./node_modules
+COPY --from=builder /app/packages/shared/dist ./node_modules/@blog/shared/dist
+COPY --from=builder /app/packages/shared/package.json ./node_modules/@blog/shared/
+
+RUN mkdir -p uploads
+
+EXPOSE 3001
+
+CMD ["bun", "run", "dist/index.js"]
