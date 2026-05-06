@@ -33,3 +33,4 @@ packages/backend/drizzle/meta/
 
 # Test
 coverage/
+.github/workflows/

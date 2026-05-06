@@ -1,6 +1,6 @@
 {
   "installCommand": "cd ../.. && pnpm install --filter=@blog/backend...",
-  "buildCommand": "cd ../.. && pnpm --filter @blog/shared build && pnpm --filter @blog/backend build",
+  "buildCommand": "pnpm build",
   "outputDirectory": ".",
   "functions": {
     "api/index.ts": {
