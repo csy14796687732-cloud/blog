@@ -2,7 +2,7 @@ import { db } from '../db';
 import { tags, postTags, posts } from '../db/schema';
 import { eq, count, desc } from 'drizzle-orm';
 import { HTTPException } from 'hono/http-exception';
-import { generateSlug } from '@blog/shared/utils';
+import { generateSlug } from '../shared/utils/index.js';
 
 export async function getAllTags() {
   const result = await db

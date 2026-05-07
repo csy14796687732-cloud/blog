@@ -1,7 +1,7 @@
 import { Hono } from 'hono';
 import { authMiddleware, adminMiddleware } from '../middleware/auth';
 import { validate } from '../middleware/validate';
-import { createTagSchema, updateTagSchema } from '@blog/shared/validations';
+import { createTagSchema, updateTagSchema } from '../shared/validations/index.js';
 import {
   getAllTags,
   getTagBySlug,

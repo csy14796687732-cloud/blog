@@ -4,7 +4,7 @@ import { eq } from 'drizzle-orm';
 import bcrypt from 'bcryptjs';
 import { generateToken } from '../middleware/auth';
 import { HTTPException } from 'hono/http-exception';
-import type { UserPublic } from '@blog/shared/types';
+import type { UserPublic } from '../shared/types/index.js';
 
 function toPublicUser(user: typeof users.$inferSelect): UserPublic {
   return {

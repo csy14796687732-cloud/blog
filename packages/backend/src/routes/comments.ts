@@ -1,7 +1,7 @@
 import { Hono } from 'hono';
 import { authMiddleware, adminMiddleware } from '../middleware/auth';
 import { validate } from '../middleware/validate';
-import { createCommentSchema, updateCommentSchema } from '@blog/shared/validations';
+import { createCommentSchema, updateCommentSchema } from '../shared/validations/index.js';
 import {
   getPostComments,
   createComment,

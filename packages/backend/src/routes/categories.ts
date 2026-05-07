@@ -1,7 +1,7 @@
 import { Hono } from 'hono';
 import { authMiddleware, adminMiddleware } from '../middleware/auth';
 import { validate } from '../middleware/validate';
-import { createCategorySchema, updateCategorySchema } from '@blog/shared/validations';
+import { createCategorySchema, updateCategorySchema } from '../shared/validations/index.js';
 import {
   getAllCategories,
   getCategoryBySlug,

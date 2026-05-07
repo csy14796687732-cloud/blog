@@ -2,8 +2,8 @@ import { db } from '../db';
 import { categories, posts } from '../db/schema';
 import { eq, count, desc } from 'drizzle-orm';
 import { HTTPException } from 'hono/http-exception';
-import { generateSlug } from '@blog/shared/utils';
-import type { Category } from '@blog/shared/types';
+import { generateSlug } from '../shared/utils/index.js';
+import type { Category } from '../shared/types/index.js';
 
 export async function getAllCategories() {
   const result = await db

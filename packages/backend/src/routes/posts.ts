@@ -1,7 +1,7 @@
 import { Hono } from 'hono';
 import { authMiddleware, adminMiddleware, optionalAuthMiddleware } from '../middleware/auth';
 import { validate } from '../middleware/validate';
-import { createPostSchema, updatePostSchema } from '@blog/shared/validations';
+import { createPostSchema, updatePostSchema } from '../shared/validations/index.js';
 import {
   getPosts,
   getFeaturedPosts,
@@ -14,7 +14,7 @@ import {
 } from '../services/posts.service';
 import { getPaginationParams, paginatedResponse } from '../utils/pagination';
 import { successResponse } from '../utils/response';
-import type { PostFilterParams } from '@blog/shared/types';
+import type { PostFilterParams } from '../shared/types/index.js';
 
 const router = new Hono();
 

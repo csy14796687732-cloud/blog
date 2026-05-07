@@ -6,7 +6,7 @@ import {
   loginSchema,
   updateProfileSchema,
   changePasswordSchema,
-} from '@blog/shared/validations';
+} from '../shared/validations/index.js';
 import {
   registerUser,
   loginUser,

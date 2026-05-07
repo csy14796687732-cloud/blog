@@ -2,8 +2,8 @@ import { db } from '../db';
 import { posts, categories, tags, postTags, likes, comments, users } from '../db/schema';
 import { eq, and, or, like, desc, asc, sql, count, isNull, ne } from 'drizzle-orm';
 import { HTTPException } from 'hono/http-exception';
-import { generateUniqueSlug } from '@blog/shared/utils';
-import type { PostWithRelations, PostFilterParams } from '@blog/shared/types';
+import { generateUniqueSlug } from '../shared/utils/index.js';
+import type { PostWithRelations, PostFilterParams } from '../shared/types/index.js';
 
 const postWithRelations = {
   author: {

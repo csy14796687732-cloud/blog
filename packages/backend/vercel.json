@@ -1,6 +1,6 @@
 {
-  "installCommand": "cd ../.. && pnpm install --filter=@blog/backend...",
-  "buildCommand": "echo 'skipping tsc build, Vercel handles TS natively'",
+  "installCommand": "npm install",
+  "buildCommand": "echo done",
   "outputDirectory": ".",
   "functions": {
     "api/index.ts": {

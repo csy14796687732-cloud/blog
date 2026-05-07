@@ -15,7 +15,6 @@
     "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
-    "@blog/shared": "workspace:*",
     "@hono/node-server": "^1.13.7",
     "@hono/zod-validator": "^0.4.2",
     "bcryptjs": "^2.4.3",

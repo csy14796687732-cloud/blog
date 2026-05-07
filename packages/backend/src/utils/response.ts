@@ -1,4 +1,5 @@
 import type { Context } from 'hono';
+import type { ContentfulStatusCode } from 'hono/utils/http-status';
 
 export function successResponse(c: Context, data?: unknown, message = '操作成功', status = 200) {
   return c.json(
@@ -7,7 +8,7 @@ export function successResponse(c: Context, data?: unknown, message = '操作成
       message,
       data,
     },
-    status,
+    status as ContentfulStatusCode,
   );
 }
 
@@ -17,6 +18,6 @@ export function errorResponse(c: Context, message: string, status = 400) {
       success: false,
       message,
     },
-    status,
+    status as ContentfulStatusCode,
   );
 }
