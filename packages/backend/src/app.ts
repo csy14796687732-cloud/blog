@@ -20,18 +20,8 @@ import bcrypt from 'bcryptjs';
 const app = new Hono();
 
 // Global CORS - allow Vercel preview URLs and production URL
-const ALLOWED_ORIGINS = [
-  'http://localhost:3000',
-  'http://localhost:3001',
-  /^https:\/\/.*\.vercel\.app$/,  // Vercel preview URLs
-];
-
-if (process.env.NUXT_PUBLIC_SITE_URL) {
-  ALLOWED_ORIGINS.push(process.env.NUXT_PUBLIC_SITE_URL);
-}
-
 app.use('/*', cors({
-  origin: ALLOWED_ORIGINS,
+  origin: '*',
   credentials: true,
 }));
 
@@ -83,7 +73,7 @@ export async function seedAdmin() {
         email: adminEmail,
         password_hash,
         display_name: '管理员',
-        role: 'admin',
+        role: 'admin' as const,
       });
       console.log('Admin user created successfully');
     }
